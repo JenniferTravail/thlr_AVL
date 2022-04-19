@@ -3,7 +3,7 @@ NB_ROT = 0
 def reset_nb_rot():
     global NB_ROT
     NB_ROT = 0
-
+#  Repo git
 class AVL_Node:
 
 
@@ -17,6 +17,7 @@ class AVL_Node:
         return self.insert_wrapper(value)[0]
 
     def insert_wrapper(self, value):
+
         if self._value < value: # right
             if self._right == None:
                 self._right = AVL_Node(value)
@@ -64,4 +65,9 @@ class AVL_Node:
 
     def turn_left(self):
         assert (self._right is not None)
-        
+        node_right = self._right
+        node_left = self._right._left
+        self._right = node_left
+        node_right._left = self
+        # Il faut que je regarde comment modifier la valeur global
+        return node_right
