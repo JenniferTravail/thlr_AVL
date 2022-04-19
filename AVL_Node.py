@@ -71,3 +71,11 @@ class AVL_Node:
         node_right._left = self
         # Il faut que je regarde comment modifier la valeur global
         return node_right
+
+    def turn_right(self):
+        assert (self._right is not None)
+        node_left = self._left # 20
+        node_right = self._left._right # 30
+        self._left = node_right
+        node_left._right = self
+        return node_left
